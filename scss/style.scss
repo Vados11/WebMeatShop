@@ -1,14 +1,4 @@
-/* background color*/
-/* text color*/
-/* text menu color */
-/* text menu color when hover */
-/* text title card */
-/* indents */
-/* radius */
-.card__header, .header {
-  background-position: center center;
-  background-size: cover;
-}
+@import "base";
 
 * {
   box-sizing: border-box;
@@ -18,8 +8,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #1e212b;
-  color: white;
+  background-color: $primary-color;
+  color: $primary-text-color;
 }
 
 .container {
@@ -27,13 +17,18 @@ body {
   grid-template-columns: 25% auto;
   grid-template-rows: 150px;
   grid-auto-rows: auto;
-  grid-template-areas: "hd hd" "nav nav" "sidebar main" "footer footer";
+  grid-template-areas:
+    "hd hd"
+    "nav nav"
+    "sidebar main"
+    "footer footer";
 }
 
 .header {
   grid-area: hd;
-  padding: 16px;
+  padding: $std-indent;
   background-image: url(images/beef.webp);
+  @extend %background-setup;
 }
 
 .header__title {
@@ -47,15 +42,15 @@ body {
 }
 
 .menu__item {
-  padding: 0 32px;
+  padding: 0 $double-std-indent;
   line-height: 3rem;
   text-decoration: none;
-  color: #f3e3a4;
+  color: $primary-text-menu-color;
 }
 
 .menu__item:hover {
-  background-color: #454c64;
-  color: black;
+  background-color: $primary-menu-color;
+  color: $primary-text-menu-hover-color;
 }
 
 .sidebar {
@@ -79,13 +74,10 @@ body {
 .card {
   width: 23%;
   height: fit-content;
-  margin-bottom: 32px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
+  margin-bottom: $double-std-indent;
+  @include border-radius($radius);
   overflow: hidden;
-  background-color: #222;
+  background-color: $primary-card-color;
   transition: box-shadow 0.25s, transform 0.25s;
 }
 
@@ -98,6 +90,7 @@ body {
   position: relative;
   height: 250px;
   overflow: hidden;
+  @extend %background-setup;
 }
 
 .item-1 {
@@ -124,7 +117,7 @@ body {
 
 .card__content p {
   margin: 0px;
-  color: rgb(255, 102, 0);
+  color: $primary-title-card-color;
 }
 
 .card__info {
@@ -132,8 +125,8 @@ body {
 }
 
 .sidebar__title {
-  background-color: #0d0f13;
-  padding: 16px;
+  background-color: $primary-sidebar-title-color;
+  padding: $std-indent;
   font-size: 24px;
 }
 
@@ -142,17 +135,17 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  background-color: #343740;
+  background-color: $primary-sidebar-color;
 }
 
 .sidebar__email {
   text-decoration: none;
-  color: white;
-  padding: 16px;
+  color: $primary-text-color;
+  padding: $std-indent;
 }
 
 .sidebar__email:hover {
-  color: rgb(255, 102, 0);
+  color: $primary-title-card-color;
 }
 
 .sidebar__contacts,
@@ -165,16 +158,23 @@ body {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 100px;
-    grid-template-areas: "hd hd" "nav nav" "main main" "footer footer";
+    grid-template-areas:
+      "hd hd"
+      "nav nav"
+      "main main"
+      "footer footer";
   }
+
   .header {
     padding: 0;
     font-size: 15px;
     text-align: center;
   }
+
   .sidebar {
     display: none;
   }
+
   .menu {
     font-size: 15px;
     flex-wrap: wrap;
@@ -182,10 +182,9 @@ body {
     justify-content: center;
     text-align: center;
   }
+
   .card {
     width: 100%;
     margin: 0 16px 16px 16px;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
