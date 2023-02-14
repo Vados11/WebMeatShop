@@ -5,7 +5,8 @@
 /* text title card */
 /* indents */
 /* radius */
-.card__header, .header {
+.card__header,
+.header {
   background-position: center center;
   background-size: cover;
 }
@@ -33,7 +34,7 @@ body {
 .header {
   grid-area: hd;
   padding: 16px;
-  background-image: url(images/beef.webp);
+  background-image: url(/images/beef.webp);
 }
 
 .header__title {
